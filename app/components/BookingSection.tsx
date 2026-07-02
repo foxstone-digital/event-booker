@@ -1,0 +1,117 @@
+"use client";
+
+import * as Dialog from "@radix-ui/react-dialog";
+import type { FormEvent } from "react";
+
+export default function BookingSection() {
+  const handleRequestSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    window.alert("Thank you! We will contact you about availability soon.");
+  };
+
+  return (
+    <section className="grid gap-8 pb-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div className="space-y-6">
+        <div className="rounded-[32px] border border-black/5 bg-[var(--surface)] p-8 shadow-md">
+          <p className="text-sm uppercase tracking-[0.35em] text-[var(--foreground)]/70">Plan your wedding</p>
+          <h2 className="mt-4 text-3xl font-semibold text-[var(--accent-strong)] sm:text-4xl">Reserve your date with Foxstone Farm.</h2>
+          <p className="mt-4 text-[var(--foreground)]/80">
+            Share your date and details, and our team will reach out with availability and next steps.
+          </p>
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
+                >
+                  Book your date
+                </button>                
+              </Dialog.Trigger>              
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
+              >
+                Discover more
+            </a>
+              <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
+                <Dialog.Content className="fixed left-1/2 top-1/2 w-[min(90vw,540px)] -translate-x-1/2 -translate-y-1/2 rounded-[32px] bg-surface p-8 shadow-[0_35px_90px_-45px_rgba(47,35,22,0.45)] focus:outline-none">
+                  <Dialog.Title className="text-2xl font-semibold text-accent-strong">Book your wedding date</Dialog.Title>
+                  <Dialog.Description className="mt-3 text-sm leading-6 text-foreground/70">
+                    Send us a few details and we’ll reach out with availability and planning support.
+                  </Dialog.Description>
+                  <form className="mt-8 grid gap-4" onSubmit={handleRequestSubmit}>
+                    <label className="grid gap-2 text-sm text-foreground/80">
+                      Name
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your name"
+                        className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                      />
+                    </label>
+                    <label className="grid gap-2 text-sm text-foreground/80">
+                      Email
+                      <input
+                        required
+                        type="email"
+                        placeholder="you@example.com"
+                        className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                      />
+                    </label>
+                    <label className="grid gap-2 text-sm text-foreground/80">
+                      Wedding date
+                      <input
+                        required
+                        type="date"
+                        className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                      />
+                    </label>
+                    <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-end">
+                      <Dialog.Close asChild>
+                        <button
+                          type="button"
+                          className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-black/5"
+                        >
+                          Cancel
+                        </button>
+                      </Dialog.Close>
+                      <button
+                        type="submit"
+                        className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
+                      >
+                        Submit request
+                      </button>
+                    </div>
+                  </form>
+                  <Dialog.Close asChild>
+                    <button
+                      type="button"
+                      className="absolute right-4 top-4 text-foreground/50 transition hover:text-foreground"
+                      aria-label="Close"
+                    >
+                      ✕
+                    </button>
+                  </Dialog.Close>
+                </Dialog.Content>
+              </Dialog.Portal>
+            </Dialog.Root>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-[32px] border border-black/5 bg-surface p-8 shadow-[0_32px_80px_-50px_rgba(47,35,22,0.18)]">
+        <p className="text-sm uppercase tracking-[0.35em] text-foreground/70">Featured experience</p>
+        <h2 className="mt-4 text-2xl font-semibold text-accent-strong">Private barn celebration</h2>
+        <p className="mt-4 text-foreground/80">
+          Celebrate your reception in a restored oak barn with candlelit tables, soft linens, and farm-to-table cuisine.
+        </p>
+        <div className="mt-6 grid gap-3 text-sm text-foreground/70 sm:grid-cols-2">
+            <div className="rounded-2xl bg-surface p-4 shadow-sm shadow-black/5">Up to 120 guests</div>
+            <div className="rounded-2xl bg-surface p-4 shadow-sm shadow-black/5">Curated catering</div>
+        </div>
+      </div>
+    </section>
+  );
+}
