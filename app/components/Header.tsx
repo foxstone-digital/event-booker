@@ -96,7 +96,7 @@ export default function Header() {
           </Dialog.Root>
           <a
             href="#about"
-            className="inline-flex items-center justify-center rounded-full border border-accent text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
+            className="inline-flex items-center justify-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
           >
             Discover more
           </a>
