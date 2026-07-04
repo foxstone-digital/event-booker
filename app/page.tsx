@@ -1,4 +1,14 @@
+"use client";
+
+import * as Dialog from "@radix-ui/react-dialog";
+import type { FormEvent } from "react";
+
 export default function Home() {
+  const handleRequestSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    window.alert("Thank you! We will contact you about availability soon.");
+  };
+
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(255,249,239,0.95),_transparent_35%),linear-gradient(180deg,_#f7efe7_0%,_#fbf6f0_30%,_#fffdf9_100%)] text-foreground">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-10 sm:px-8 lg:px-10">
@@ -14,12 +24,78 @@ export default function Home() {
               Foxstone Farm offers a private, beautifully restored countryside venue where weddings unfold among sunlit paddocks, oak barns, and warm farm hospitality.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="#packages"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
-              >
-                View packages
-              </a>
+              <Dialog.Root>
+                <Dialog.Trigger asChild>
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
+                  >
+                    Book your date
+                  </button>
+                </Dialog.Trigger>
+                <Dialog.Portal>
+                  <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
+                  <Dialog.Content className="fixed left-1/2 top-1/2 w-[min(90vw,540px)] -translate-x-1/2 -translate-y-1/2 rounded-[32px] bg-white p-8 shadow-[0_35px_90px_-45px_rgba(47,35,22,0.45)] focus:outline-none">
+                    <Dialog.Title className="text-2xl font-semibold text-accent-strong">Book your wedding date</Dialog.Title>
+                    <Dialog.Description className="mt-3 text-sm leading-6 text-foreground/70">
+                      Send us a few details and we’ll reach out with availability and planning support.
+                    </Dialog.Description>
+                    <form className="mt-8 grid gap-4" onSubmit={handleRequestSubmit}>
+                      <label className="grid gap-2 text-sm text-foreground/80">
+                        Name
+                        <input
+                          required
+                          type="text"
+                          placeholder="Your name"
+                          className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                        />
+                      </label>
+                      <label className="grid gap-2 text-sm text-foreground/80">
+                        Email
+                        <input
+                          required
+                          type="email"
+                          placeholder="you@example.com"
+                          className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                        />
+                      </label>
+                      <label className="grid gap-2 text-sm text-foreground/80">
+                        Wedding date
+                        <input
+                          required
+                          type="date"
+                          className="rounded-2xl border border-black/10 bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
+                        />
+                      </label>
+                      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-end">
+                        <Dialog.Close asChild>
+                          <button
+                            type="button"
+                            className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-black/5"
+                          >
+                            Cancel
+                          </button>
+                        </Dialog.Close>
+                        <button
+                          type="submit"
+                          className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
+                        >
+                          Submit request
+                        </button>
+                      </div>
+                    </form>
+                    <Dialog.Close asChild>
+                      <button
+                        type="button"
+                        className="absolute right-4 top-4 text-foreground/50 transition hover:text-foreground"
+                        aria-label="Close"
+                      >
+                        ✕
+                      </button>
+                    </Dialog.Close>
+                  </Dialog.Content>
+                </Dialog.Portal>
+              </Dialog.Root>
               <a
                 href="#about"
                 className="inline-flex items-center justify-center rounded-full border border-accent text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
