@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <section className="grid gap-8 pb-12 text-center sm:pb-16 sm:text-left lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
       <div className="space-y-6">
-        <div className="inline-flex items-center justify-center gap-3 rounded-full border border-black/5 bg-white/90 px-5 py-2 text-xs uppercase tracking-[0.35em] text-muted sm:justify-start">
+        <div className="inline-flex items-center justify-center gap-3 rounded-full border border-black/5 bg-[var(--surface)]/90 px-5 py-2 text-xs uppercase tracking-[0.35em] text-[var(--muted)] sm:justify-start">
           Stay • Dine • Explore • Say “I Do”
         </div>
         <h1 className="text-4xl font-semibold leading-tight text-accent-strong sm:text-5xl">
@@ -20,8 +20,8 @@ export default function Header() {
           Celebrate your reception in a restored oak barn with candlelit tables, soft linens, and farm-to-table cuisine.
         </p>
         <div className="mt-6 grid gap-3 text-sm text-foreground/70 sm:grid-cols-2">
-          <div className="rounded-2xl bg-white p-4 shadow-sm shadow-black/5">Up to 120 guests</div>
-          <div className="rounded-2xl bg-white p-4 shadow-sm shadow-black/5">Curated catering</div>
+          <div className="rounded-2xl bg-surface p-4 shadow-sm shadow-black/5">Up to 120 guests</div>
+          <div className="rounded-2xl bg-surface p-4 shadow-sm shadow-black/5">Curated catering</div>
         </div>
       </div>
     </section>

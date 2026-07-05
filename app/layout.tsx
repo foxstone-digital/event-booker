@@ -17,6 +17,17 @@ export const metadata: Metadata = {
   description: "A secluded wedding destination with farm charm, rustic venues, and curated celebrations.",
 };
 
+const themeScript = `(function() {
+  try {
+    const storedTheme = window.localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  } catch (error) {
+    console.warn('Theme initialization failed', error);
+  }
+})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +38,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {children}
+      </body>
     </html>
   );
 }

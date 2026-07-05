@@ -45,12 +45,12 @@ export default function PackageTabs() {
       </div>
 
       <Tabs.Root defaultValue="ceremonies" className="space-y-10">
-        <Tabs.List className="flex flex-wrap gap-3 rounded-[32px] bg-white/90 p-2 shadow-sm shadow-black/5">
+        <Tabs.List className="flex flex-wrap gap-3 rounded-[32px] bg-[var(--surface)]/90 p-2 shadow-sm shadow-black/5">
           {packageDetails.map((item) => (
             <Tabs.Trigger
               key={item.value}
               value={item.value}
-              className="inline-flex min-w-[10rem] items-center justify-center rounded-full border border-transparent bg-white px-5 py-3 text-sm font-semibold text-foreground/70 transition hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/30 data-[state=active]:bg-accent data-[state=active]:text-white"
+              className="inline-flex min-w-[10rem] items-center justify-center rounded-full border border-transparent bg-surface px-5 py-3 text-sm font-semibold text-foreground/70 transition hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/30 data-[state=active]:bg-accent data-[state=active]:text-white"
             >
               {item.label}
             </Tabs.Trigger>
@@ -59,14 +59,14 @@ export default function PackageTabs() {
 
         {packageDetails.map((item) => (
           <Tabs.Content key={item.value} value={item.value} className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <div className="rounded-[28px] bg-white p-8 shadow-sm shadow-black/5">
+            <div className="rounded-[28px] bg-surface p-8 shadow-sm shadow-black/5">
               <p className="text-sm uppercase tracking-[0.35em] text-foreground/70">{item.label}</p>
               <h3 className="mt-4 text-2xl font-semibold text-accent-strong">{item.title}</h3>
               <p className="mt-4 text-foreground/80">{item.description}</p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2">
               {item.highlights.map((highlight) => (
-                <div key={highlight} className="rounded-[28px] bg-white p-8 shadow-sm shadow-black/5">
+                <div key={highlight} className="rounded-[28px] bg-surface p-8 shadow-sm shadow-black/5">
                   <p className="text-sm uppercase tracking-[0.35em] text-foreground/70">{highlight}</p>
                 </div>
               ))}
