@@ -12,7 +12,7 @@ export default function BookingSection() {
   return (
     <section className="grid gap-8 pb-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
       <div className="space-y-6">
-        <div className="rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_32px_80px_-50px_rgba(47,35,22,0.18)]">
+        <div className="rounded-[32px] border border-black/5 bg-white p-8 shadow-md">
           <p className="text-sm uppercase tracking-[0.35em] text-foreground/70">Plan your wedding</p>
           <h2 className="mt-4 text-3xl font-semibold text-accent-strong sm:text-4xl">Reserve your date with Foxstone Farm.</h2>
           <p className="mt-4 text-foreground/80">
@@ -26,8 +26,14 @@ export default function BookingSection() {
                   className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
                 >
                   Book your date
-                </button>
-              </Dialog.Trigger>
+                </button>                
+              </Dialog.Trigger>              
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
+              >
+                Discover more
+            </a>
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
                 <Dialog.Content className="fixed left-1/2 top-1/2 w-[min(90vw,540px)] -translate-x-1/2 -translate-y-1/2 rounded-[32px] bg-white p-8 shadow-[0_35px_90px_-45px_rgba(47,35,22,0.45)] focus:outline-none">

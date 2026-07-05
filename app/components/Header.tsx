@@ -10,21 +10,7 @@ export default function Header() {
         </h1>
         <p className="max-w-2xl text-lg leading-8 text-foreground/80">
           Foxstone Farm offers a private, beautifully restored countryside venue where weddings unfold among sunlit paddocks, oak barns, and warm farm hospitality.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <a
-            href="#booking"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition hover:bg-accent-strong"
-          >
-            Book your date
-          </a>
-          <a
-            href="#about"
-            className="inline-flex items-center justify-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent-strong transition hover:bg-accent/10"
-          >
-            Discover more
-          </a>
-        </div>
+        </p>        
       </div>
 
       <div className="rounded-[32px] border border-black/5 bg-surface p-8 shadow-[0_32px_80px_-50px_rgba(47,35,22,0.18)]">

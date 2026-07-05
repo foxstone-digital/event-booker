@@ -5,7 +5,7 @@ import PackageTabs from "./components/PackageTabs";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(255,249,239,0.95),_transparent_35%),linear-gradient(180deg,_#f7efe7_0%,_#fbf6f0_30%,_#fffdf9_100%)] text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-10 sm:px-8 lg:px-10">
         <Header />
         <BookingSection />
